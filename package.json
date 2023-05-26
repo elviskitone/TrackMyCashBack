@@ -5,6 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "start": "nodemon build/server.js",
+    "transpile": "tsc",
     "dev": "tsnd --respawn server.ts",
     "db:all": "yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230329121458-users_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230317112747-incomes_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230318104212-expenses_seeder.js",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000 || :",
