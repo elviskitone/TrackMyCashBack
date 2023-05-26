@@ -1,0 +1,76 @@
+{
+  "name": "trackmycash",
+  "version": "1.0.0",
+  "description": "The app helps you keep track of your money, by managing your incomes and expenses.",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "tsnd --respawn server.ts",
+    "db:all": "yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230329121458-users_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230317112747-incomes_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230318104212-expenses_seeder.js",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000 || :",
+    "pretest": "cross-env NODE_ENV=test yarn run db:reset",
+    "posttest": "cross-env NODE_ENV=test yarn sequelize-cli db:drop",
+    "db:create:test": "cross-env NODE_ENV=test yarn sequelize-cli db:create",
+    "db:reset": "yarn sequelize-cli db:drop && yarn sequelize-cli db:create && yarn sequelize-cli db:migrate --migrations-path ./build/migrations && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230329121458-users_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230317112747-incomes_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230318104212-expenses_seeder.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.3",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth2": "^0.2.0",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.25.8",
+    "sequelize-cli": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-session": "^2.0.44",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.0",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.15.11",
+    "@types/passport": "^1.0.12",
+    "@types/supertest": "^2.0.12",
+    "cross-env": "^7.0.3",
+    "jest": "^29.3.1",
+    "jshint": "^2.13.6",
+    "jslint": "^0.12.1",
+    "supertest": "^6.3.1",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ]
+  }
+}
