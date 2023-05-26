@@ -4,6 +4,7 @@
   "description": "The app helps you keep track of your money, by managing your incomes and expenses.",
   "main": "server.ts",
   "scripts": {
+    "start": "nodemon build/server.js",
     "dev": "tsnd --respawn server.ts",
     "db:all": "yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230329121458-users_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230317112747-incomes_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230318104212-expenses_seeder.js",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000 || :",
