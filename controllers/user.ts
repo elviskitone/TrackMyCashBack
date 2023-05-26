@@ -55,8 +55,7 @@ const authenticate = async (req: Request, res: Response) => {
       message: "Authentication successful",
       userdata: { user: user, token: token },
     });
-  } catch (error: any) {
-    res.redirect("/api/");
+  } catch (error: any) {    
     res.status(500).json({ message: error.message });
   }
 };
