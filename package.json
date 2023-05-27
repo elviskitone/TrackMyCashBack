@@ -14,7 +14,7 @@
     "db:create:test": "cross-env NODE_ENV=test yarn sequelize-cli db:create",
     "db:reset": "yarn sequelize-cli db:drop && yarn sequelize-cli db:create && yarn sequelize-cli db:migrate --migrations-path ./build/migrations && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230329121458-users_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230317112747-incomes_seeder.js && yarn sequelize-cli db:seed --seeders-path ./build/seeders --seed 20230318104212-expenses_seeder.js"
   },
-  "author": "",
+  "author": "Kitone Elvis Peter",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
